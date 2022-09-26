@@ -1,11 +1,6 @@
 import React, { JSXElementConstructor, ReactElement } from 'react'
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import Account from './pages/Account'
-import Comments from './pages/Comments'
-import Feed from './pages/Feed'
-import CreatePost from './pages/Feed/CreatePost'
-import Games, { GameRoutes } from './pages/Games'
-import Gyckel from './pages/Gyckel'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import Main from './pages/Main'
 
 export type Route = {
     label: string
@@ -14,7 +9,7 @@ export type Route = {
     inSidebar?: boolean
 }
 
-const baseRoutes: Route[] = [
+const routes: Route[] = [
     {
         label: 'Home',
         path: '/',
@@ -24,10 +19,7 @@ const baseRoutes: Route[] = [
     },
 ]
 
-export const routes: Route[] = baseRoutes.concat(GameRoutes)
-
-const Router = () =>
-{
+const Router = () => {
     document.title = 'D-sek Hoodieutdelning'
     return (
         <Routes>

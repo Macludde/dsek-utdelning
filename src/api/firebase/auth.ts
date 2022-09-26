@@ -5,8 +5,7 @@ import {
     signInWithPopup,
     signOut as fbSignOut,
 } from 'firebase/auth'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
-import { db } from './config'
+import './config'
 
 const provider = new GoogleAuthProvider()
 provider.setCustomParameters({ prompt: 'select_account' })
@@ -49,4 +48,3 @@ export const signOut = async () => {
         console.error(errorCode, errorMessage)
     }
 }
-

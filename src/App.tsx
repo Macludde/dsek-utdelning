@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 import AuthGate from './components/AuthGate'
-import Layout from './components/Layout'
 import Router from './Router'
 import defaultTheme from './styles/theme'
 
@@ -13,7 +12,7 @@ export const ThemeContext = createContext<{
     toggleTheme: () => {},
 })
 
-const defaultThemeType = 'light'
+const defaultThemeType = 'dark'
 
 const App = () => {
     const [theme, setTheme] = useState<'light' | 'dark'>(defaultThemeType)
@@ -38,9 +37,7 @@ const App = () => {
                 <StyledThemeProvider theme={defaultTheme.styled}>
                     <ThemeContext.Provider value={{ toggleTheme }}>
                         <AuthGate>
-                            <Layout>
-                                <Router />
-                            </Layout>
+                            <Router />
                         </AuthGate>
                     </ThemeContext.Provider>
                 </StyledThemeProvider>

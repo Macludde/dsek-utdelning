@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app'
 import { initializeFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: 'dsek-utdelning.firebaseapp.com',
     projectId: 'dsek-utdelning',
     storageBucket: 'dsek-utdelning.appspot.com',
@@ -15,4 +16,3 @@ const app = initializeApp(firebaseConfig)
 export default app
 
 export const db = initializeFirestore(app, { ignoreUndefinedProperties: true })
-

@@ -1,7 +1,5 @@
 import {
-    collection,
     doc,
-    getDocs,
     getFirestore,
     runTransaction,
     Transaction,
@@ -21,11 +19,3 @@ export const takeHoodie = async (userId: string, hoodieId: string) => {
         transaction.update(hoodieRef, hoodie as any)
     })
 }
-
-export const getAllAvailableHoodies = async () => {
-    const hoodies = await getDocs(collection(db, 'hoodies'))
-    return hoodies.docs
-        .map((document: any) => document.data() as Hoodie)
-        .filter((hoodie) => !hoodie.takenBy)
-}
-
