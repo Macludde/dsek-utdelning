@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button } from '@mui/material'
 import { useHoodies, useMyHoodies } from '../../hooks/useHoodies'
 import useAuth from '../../hooks/useAuth'
-import { takeHoodie } from '../../api/firebase/firestore'
+import { takeHoodie, unreserveHoodie } from '../../api/firebase/firestore'
 import { signOut } from '../../api/firebase/auth'
 
 const Main = () => {
@@ -35,6 +35,13 @@ const Main = () => {
                         {hoodie.size}
                     </Box>
                 ))}
+                <Button
+                    variant="contained"
+                    sx={{ mt: 4 }}
+                    onClick={() => unreserveHoodie(myHoodies[0].id)}
+                >
+                    Avreservera
+                </Button>
             </Box>
         )
     }

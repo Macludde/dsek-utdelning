@@ -19,3 +19,16 @@ export const takeHoodie = async (userId: string, hoodieId: string) => {
         transaction.update(hoodieRef, hoodie as any)
     })
 }
+
+export const unreserveHoodie = async (hoodieId: string) => {
+    runTransaction(getFirestore(), async (transaction: Transaction) => {
+        const hoodieRef = doc(db, 'hoodies', hoodieId)
+        const hoodieDoc = await transaction.get(hoodieRef)
+        const hoodie = hoodieDoc.data() as Hoodie
+        if (!hoodie.takenBy) {
+            throw new Error('Hoodie is not taken')
+        }
+        hoodie.takenBy = null
+        transaction.update(hoodieRef, hoodie as any)
+    })
+}
