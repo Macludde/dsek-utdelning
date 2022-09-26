@@ -26,7 +26,7 @@ const Main = () => {
     if (myHoodies) {
         return (
             <Box sx={{ textAlign: 'center', m: 4 }}>
-                Du har redan en hoodie, nämligen en storlek:
+                Du har reserverat en hoodie med storlek:
                 {myHoodies.map((hoodie: any) => (
                     <Box
                         key={hoodie.id}
