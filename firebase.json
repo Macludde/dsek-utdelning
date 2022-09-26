@@ -1,8 +1,4 @@
 {
-    "firestore": {
-        "rules": "firestore.rules",
-        "indexes": "firestore.indexes.json"
-    },
     "hosting": {
         "public": "build",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
@@ -13,8 +9,5 @@
             }
         ],
         "predeploy": ["npm run build"]
-    },
-    "storage": {
-        "rules": "storage.rules"
     }
 }
